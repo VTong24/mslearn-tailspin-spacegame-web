@@ -1,3 +1,26 @@
-pool: MyAgentPool
-steps:
-- bash: echo hello world
+trigger:
+- main
+
+resources:
+- repo: self
+
+variables:
+  vmImageName: 'ubuntu-latest'
+  Buildconfiguration: 'Release'
+
+stages:
+- stage: Build
+  displayName: Build and publish Java container
+  jobs:  
+  - job: Build
+    displayName: Build
+
+    pool:
+      vmImage: $(vmImageName)
+
+    steps:
+    - task: UseDotNet@2
+    displayName: 'Use .NET SDK 6.x'
+    inputs:
+        packageType: sdk
+        version: '6.x'
