@@ -1,9 +1,6 @@
 trigger:
 - '*'
 
-resources:
-- repo: self
-
 variables:
   vmImageName: 'ubuntu-latest'
   Buildconfiguration: 'Release'
