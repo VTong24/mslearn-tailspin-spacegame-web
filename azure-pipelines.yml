@@ -10,7 +10,7 @@ variables:
 
 stages:
 - stage: Build
-  displayName: Build and publish Java container
+  displayName: Build
   jobs:  
   - job: Build
     displayName: Build
@@ -20,7 +20,6 @@ stages:
 
     steps:
     - task: UseDotNet@2
-    displayName: 'Use .NET SDK 6.x'
-    inputs:
+      inputs:
         packageType: sdk
         version: '6.x'
